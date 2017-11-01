@@ -1,11 +1,18 @@
-angular.module('friendsList').controller('mainCtrl',function($scope){
+(function(){
+  angular
+    .module('friendsList')
+    .controller('mainCtrl',mainCtrl);
+  
+  function mainCtrl(){
+      var vm = this;
 
-  this.test = "testy";
+      vm.friendPusher = friendPusher; 
+      vm.friends = ['John','Jacob','Hodor','Sue'];
 
-  this.friends = ['John','Jacob','Hodor','Sue'];
-  this.friendPusher = function(newFriendship){
-    this.friends.push(newFriendship);
-    this.newFriend= ""
-  }
-
-});
+      function friendPusher(newFriendship){
+        vm.friends.push(newFriendship);
+        vm.newFriend= ""
+      }
+    
+    }
+})()
